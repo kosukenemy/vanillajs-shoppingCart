@@ -1,0 +1,92 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+}
+
+body img {
+  width: 100%;
+}
+
+.app {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+}
+
+.app .itemsWrapper {
+  width: 60%;
+}
+
+.app .text {
+  color: #404040;
+  font-size: 14px;
+  margin: 0 auto;
+}
+
+.items .item {
+  width: 60%;
+  padding: 30px;
+  list-style: none;
+  margin: 0 auto;
+}
+
+.items .btn {
+  outline: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: none;
+  background: #404040;
+  color: #F1F5F9;
+  padding: 8px 14px;
+  border-radius: 6px;
+  margin-top: 10px;
+}
+
+.items .item-thumbnail {
+  width: 40vw;
+}
+
+.items .item-content {
+  width: 200px;
+  text-align: left;
+}
+
+.items .item-title {
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.items .item-description {
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.cartWrapeer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 40%;
+  z-index: 10;
+}
+
+.cart-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.cart-item .item-thumbnail {
+  width: 120px;
+}
+
+.btn.is-valid {
+  background-color: red;
+}
+/*# sourceMappingURL=app.css.map */

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/app.css">
+  <title>Document</title>
+</head>
+<body>
+  <div class="app">
+    <div class="itemsWrapper">
+      <ul class="items"></ul>
+    </div>
+
+    <div class="cartWrapeer">
+        <div class="cart">
+          <ul>
+            <div id="cartItems"></div>
+            <template id="cartTemplate">
+              <li id="" class="cart-item">
+                <div class="item-thumbnail">
+                  <img src="" alt="" />
+                </div>
+                <div class="item-content text">
+                  <p class="item-title"></p>
+                  <p class="item-price"></p>
+                  <p class="item-count"></p>
+                  <button data-item="remove" id="" class="btn js-removeBtn">remove</button>
+                </div>
+              </li>
+            </template>
+          </ul>
+          <div class="js-cartPrice"></div>
+        </div>
+    </div>
+    <!-- app -->
+  </div>  
+  
+
+  <h1>vanilla.js - shopping Cart</h1>
+  <div class="app">
+  <!-- template -->
+    <div class="itemsWrapper">
+      <ul class="items">
+        <div id="productItems"></div>
+        <template id="imageTemplate">
+          <li id="" class="item">
+            <div class="item-thumbnail">
+              <img src="" alt="" />
+            </div>
+            <div class="item-content text">
+              <p class="item-title"></p>
+              <p class="item-description"></p>
+              <p class="item-price"></p>
+              <select name="" id="" class="js-select">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+              <button data-item="add" id="" class="btn js-addBtn">add cart</button>
+            </div>
+          </li>
+        </template>
+      </ul>
+    </div>
+  <!-- template -->
+  </div>
+
+ 
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+  <script src="/product.js"></script>
+  <script src="js/index.js"></script>
+  <!-- <script src="js/cart.js"></script> -->
+
+</body>
+</html>
