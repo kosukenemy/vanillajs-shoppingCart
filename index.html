@@ -7,18 +7,23 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="css/app.css">
   <title>Document</title>
 </head>
 <body>
-  <div class="app">
-    <div class="itemsWrapper">
-      <ul class="items"></ul>
-    </div>
-
-    <div class="cartWrapeer">
+    <header class="appHeader header">
+      <h1 class="title"><i class="fab fa-js"></i> vanilla.js - shopping Cart</h1>
+      <button data-item="openCart" class="cartIcon"><i class="fas fa-shopping-cart"></i><span
+          class="js-myCart-count cartCount">0</span></button>
+    </header>
+    
+    <section class="section">
+      <div class="cartWrapper">
+        <button class="closeIcon closeBtn"><i class="fas fa-times"></i></button>
         <div class="cart">
-          <ul>
+          <h3 class="cart-title">My Cart<span class="cart-count"></span></h3>
+          <ul class="cart-items">
             <div id="cartItems"></div>
             <template id="cartTemplate">
               <li id="" class="cart-item">
@@ -29,48 +34,49 @@
                   <p class="item-title"></p>
                   <p class="item-price"></p>
                   <p class="item-count"></p>
-                  <button data-item="remove" id="" class="btn js-removeBtn">remove</button>
+                  <button data-item="remove" id="" class="btn js-removeBtn removeBtn"><i class="fas fa-trash-alt"></i> remove</button>
                 </div>
               </li>
             </template>
           </ul>
           <div class="js-cartPrice"></div>
         </div>
-    </div>
-    <!-- app -->
-  </div>  
-  
-
-  <h1>vanilla.js - shopping Cart</h1>
-  <div class="app">
-  <!-- template -->
+      </div>
+    
+    <!-- template -->
     <div class="itemsWrapper">
       <ul class="items">
-        <div id="productItems"></div>
+        <div class="items-lists" id="productItems"></div>
         <template id="imageTemplate">
           <li id="" class="item">
-            <div class="item-thumbnail">
+            <figure class="item-thumbnail">
               <img src="" alt="" />
-            </div>
-            <div class="item-content text">
+            </figure>
+            <figcaption class="item-content text">
               <p class="item-title"></p>
               <p class="item-description"></p>
               <p class="item-price"></p>
               <select name="" id="" class="js-select">
+                <option hidden>1</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
                 <option value="4">4</option>
                 <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
               </select>
-              <button data-item="add" id="" class="btn js-addBtn">add cart</button>
-            </div>
+              <button data-item="add" id="" class="btn js-addBtn addBtn"><i class="fas fa-plus"></i> add to cart</button>
+            </figcaption>
           </li>
         </template>
       </ul>
     </div>
-  <!-- template -->
-  </div>
+    <!-- template -->
+    </section>
 
  
 
@@ -79,7 +85,6 @@
 
   <script src="/product.js"></script>
   <script src="js/index.js"></script>
-  <!-- <script src="js/cart.js"></script> -->
 
 </body>
 </html>
