@@ -223,8 +223,9 @@ document.addEventListener('click', (event) => {
     shoppingCart.getTotalSum();
     toggleCart(cart, "is-open", header , "is-up")
   }  
-
 });
+
+
 
 
 
