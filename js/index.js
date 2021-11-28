@@ -37,15 +37,12 @@ class ShoppingCart {
   addItem(event){
     const thisItem = this.product.find(item => item.id === event.currentTarget.id);
     thisItem["product_count"] = this.productCount;
-    console.log(thisItem.product_title +'が' + thisItem.product_count + "個がカートに追加されました");
 
     if (this.cart.indexOf(thisItem) !== -1) return thisItem;
     this.cart.push(thisItem);
   }
   removeItem(elementIndex){
-    const removeThisItem = this.product.find(item => item.id === elementIndex);
     this.cart = this.cart.filter(item => { return item.id !== elementIndex });
-    console.log(removeThisItem.product_title +　"がカートから削除されました");
   }
   getTotalSum(){
     this.cart.map(item => {
@@ -145,7 +142,6 @@ const viewModel = () => {
         ToggleClasses.HeaderElement, 
         ToggleClasses.CloseHeaderClass
       );
-      // cartOverlay.classList.add('is-cart-opened');
     });
   });
 
