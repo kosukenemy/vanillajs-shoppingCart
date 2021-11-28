@@ -1,13 +1,25 @@
 
 const productAPI = "https://www.product_countjsonapi.com/products/";
+
+
+const cartOverlay = document.querySelector('.cart-overlay');
 const myCartCountElement =　document.querySelector('.js-myCart-count');
 const header = document.querySelector('.header');
+const cartLists = document.querySelector('.cart-items');
 const cartPriceElement = document.querySelector('.js-cartPrice');
 const cartOpenUpElement = document.querySelector('.section');
 const cartIcon = document.querySelector('.cartIcon');
 const cart = document.querySelector('.cartWrapper');
 const closeBtn = document.querySelector('.closeBtn');
+const cartCount = document.querySelector('.cart-count');
 
+
+const ToggleClasses = {
+  CartElement: cart,
+  OpenCartClass: "is-open",
+  HeaderElement: header,
+  CloseHeaderClass: "is-up",
+}
 
 
 class ShoppingCart {
@@ -25,7 +37,7 @@ class ShoppingCart {
   addItem(event){
     const thisItem = this.product.find(item => item.id === event.currentTarget.id);
     thisItem["product_count"] = this.productCount;
-    alert(thisItem.product_title +'が' + thisItem.product_count + "個がカートに追加されました");
+    console.log(thisItem.product_title +'が' + thisItem.product_count + "個がカートに追加されました");
 
     if (this.cart.indexOf(thisItem) !== -1) return thisItem;
     this.cart.push(thisItem);
@@ -33,7 +45,7 @@ class ShoppingCart {
   removeItem(elementIndex){
     const removeThisItem = this.product.find(item => item.id === elementIndex);
     this.cart = this.cart.filter(item => { return item.id !== elementIndex });
-    alert(removeThisItem.product_title +　"がカートから削除されました");
+    console.log(removeThisItem.product_title +　"がカートから削除されました");
   }
   getTotalSum(){
     this.cart.map(item => {
@@ -54,12 +66,14 @@ class ShoppingCart {
     if ( this.cart.length === 0 ) { 
       cartPriceElement.innerHTML = "";
       myCartCountElement.textContent = 0;
+      cartCount.textContent = "(" + 0 + ")";
       return false;
     };
     const myCartCount = cartLength.reduce((sum, i) => { return sum + i } );
 
     cartPriceElement.innerHTML = wrapperCartTotal(math);
     myCartCountElement.textContent = myCartCount;
+    cartCount.textContent = "(" + myCartCount + ")";
     return;
   }
 }
@@ -125,11 +139,29 @@ const viewModel = () => {
       shoppingCart.getTotalSum();
       openCart(!InitialState.Cart);
       shoppingCart.productCount = 1;
-    })
+      toggleCart(
+        ToggleClasses.CartElement, 
+        ToggleClasses.OpenCartClass, 
+        ToggleClasses.HeaderElement, 
+        ToggleClasses.CloseHeaderClass
+      );
+      // cartOverlay.classList.add('is-cart-opened');
+    });
   });
 
-  cartIcon.addEventListener('click', () => toggleCart(cart, "is-open", header , "is-up") );
-  closeBtn.addEventListener('click', () => toggleCart(cart, "is-open", header , "is-up") );
+  cartIcon.addEventListener('click', () => toggleCart(
+    ToggleClasses.CartElement, 
+    ToggleClasses.OpenCartClass, 
+    ToggleClasses.HeaderElement, 
+    ToggleClasses.CloseHeaderClass
+    ));
+  closeBtn.addEventListener('click', () => toggleCart(
+    ToggleClasses.CartElement, 
+    ToggleClasses.OpenCartClass, 
+    ToggleClasses.HeaderElement, 
+    ToggleClasses.CloseHeaderClass
+  ));
+  
 
   counts.forEach(count => {
     count.addEventListener('change', (event) => {
@@ -167,6 +199,9 @@ const openCart = (initialState) => {
   const cartItemsWrap = document.querySelector('#cartItems');
   cartItemsWrap.innerHTML = [];
   cartItemsWrap.appendChild(cartFragment);
+
+  const cartItemElement = document.querySelectorAll('.cart-item');
+  cartOverlayScroll(cartItemElement)
 }
 
 const toggleCart = (cartElement, openClass, header, upClass) => {
@@ -174,12 +209,21 @@ const toggleCart = (cartElement, openClass, header, upClass) => {
   header.classList.toggle(upClass);
 }
 
+const cartOverlayScroll = (cartItemNodeElements) => {
+  if ( cartItemNodeElements.length >= 4 ) {
+    cartLists.classList.add('is-scroll');
+    return;
+  }
+}
+
 document.addEventListener('click', (event) => {
   if ( event.target && event.target.dataset.item === "remove" ) {
     event.target.closest('.cart-item').remove();
     shoppingCart.removeItem(event.target.id);
     shoppingCart.getTotalSum();
+    toggleCart(cart, "is-open", header , "is-up")
   }  
+
 });
 
 

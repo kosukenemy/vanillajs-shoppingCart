@@ -19,27 +19,30 @@
     </header>
     
     <section class="section">
-      <div class="cartWrapper">
-        <button class="closeIcon closeBtn"><i class="fas fa-times"></i></button>
-        <div class="cart">
-          <h3 class="cart-title">My Cart<span class="cart-count"></span></h3>
-          <ul class="cart-items">
-            <div id="cartItems"></div>
-            <template id="cartTemplate">
-              <li id="" class="cart-item">
-                <div class="item-thumbnail">
-                  <img src="" alt="" />
-                </div>
-                <div class="item-content text">
-                  <p class="item-title"></p>
-                  <p class="item-price"></p>
-                  <p class="item-count"></p>
-                  <button data-item="remove" id="" class="btn js-removeBtn removeBtn"><i class="fas fa-trash-alt"></i> remove</button>
-                </div>
-              </li>
-            </template>
-          </ul>
-          <div class="js-cartPrice"></div>
+
+      <div class="cart-overlay">
+        <div class="cartWrapper">
+          <button class="closeIcon closeBtn"><i class="fas fa-times"></i></button>
+          <div class="cart">
+            <h3 class="cart-title">My Cart<span class="cart-count">(0)</span></h3>
+            <ul class="cart-items">
+              <div id="cartItems"></div>
+              <template id="cartTemplate">
+                <li id="" class="cart-item">
+                  <div class="item-thumbnail">
+                    <img src="" alt="" />
+                  </div>
+                  <div class="item-content text">
+                    <p class="item-title"></p>
+                    <p class="item-price"></p>
+                    <p class="item-count"></p>
+                    <button data-item="remove" id="" class="btn js-removeBtn removeBtn"><i class="fas fa-trash-alt"></i> remove</button>
+                  </div>
+                </li>
+              </template>
+            </ul>
+            <div class="js-cartPrice"></div>
+          </div>
         </div>
       </div>
     
@@ -79,8 +82,6 @@
     </section>
 
  
-
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
   <script src="/product.js"></script>

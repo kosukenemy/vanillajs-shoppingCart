@@ -146,6 +146,7 @@ body {
   z-index: 10;
   width: 50%;
   height: 100%;
+  z-index: 3;
   &.is-open {
     opacity: 1;
     transform: translate(0px, 0px);
@@ -181,8 +182,20 @@ body {
   color: $_F1F5F9;
 }
 .cart-items {
-  overflow-y: scroll;
   height: 80vh;
+  &.is-scroll {
+    overflow-y: scroll;
+  }
+}
+.cart-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    &.is-cart-opened {
+      width: 100vw;
+      height: 100vh;
+    }
 }
 .cartIcon { 
   cursor: pointer; 
